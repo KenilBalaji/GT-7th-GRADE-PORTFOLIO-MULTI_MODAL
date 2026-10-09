@@ -16,68 +16,101 @@
             --text-white: #e1e7e4;
         }
 
-        * { box-sizing: border-box; font-family: 'Courier New', Courier, monospace; }
+        * {
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
         body {
             background-color: var(--term-bg);
             color: var(--matrix-green);
-            margin: 0; padding: 0; overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
             background-image: linear-gradient(rgba(16, 24, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
             background-size: 100% 4px;
         }
+
         .crt-glitch {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle, transparent 55%, rgba(0,0,0,0.85) 100%);
-            pointer-events: none; z-index: 9999;
+            pointer-events: none;
+            z-index: 9999;
         }
+
         .terminal-wrapper {
-            max-width: 950px; margin: 2rem auto; padding: 1.5rem;
-            border: 1px solid var(--matrix-green); box-shadow: 0 0 20px var(--matrix-glow);
+            max-width: 950px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border: 1px solid var(--matrix-green);
+            box-shadow: 0 0 20px var(--matrix-glow);
             background-color: #020604;
         }
+
         .terminal-header {
-            display: flex; justify-content: space-between;
-            border-bottom: 1px dashed var(--matrix-green); padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem; font-size: 0.8rem; color: var(--text-white);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed var(--matrix-green);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-white);
         }
-        .page-view { display: none; }
-        .page-view.active-frame { display: block; animation: terminalGlitch 0.12s ease-in-out; }
-        @keyframes terminalGlitch {
-            0% { opacity: 0.3; transform: scaleY(0.98); }
-            50% { opacity: 0.8; }
-            100% { opacity: 1; transform: scaleY(1); }
+
+        .menu-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-shadow: 0 0 8px var(--matrix-green);
+            margin: 0 0 0.5rem 0;
         }
-        .menu-title { font-size: 1.8rem; font-weight: 900; text-shadow: 0 0 8px var(--matrix-green); margin-bottom: 0.5rem; }
-        .prompt-line { color: var(--text-white); margin-bottom: 2rem; font-size: 0.95rem; }
-        .directory-tree { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+
+        .prompt-line {
+            color: var(--text-white);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .directory-tree {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
         .console-trigger {
-            background-color: var(--dark-dim); border: 1px solid var(--border-glow); padding: 1.2rem;
-            color: var(--matrix-green); cursor: pointer; text-align: left; transition: all 0.2s ease;
-            font-weight: bold; text-decoration: none; display: block;
+            background-color: var(--dark-dim);
+            border: 1px solid var(--border-glow);
+            padding: 1.2rem;
+            color: var(--matrix-green);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
         }
+
         .console-trigger:hover {
-            background-color: #08210e; border-color: var(--matrix-green);
-            box-shadow: 0 0 15px var(--matrix-glow); color: var(--matrix-green);
+            background-color: #08210e;
+            border-color: var(--matrix-green);
+            box-shadow: 0 0 15px var(--matrix-glow);
+            color: var(--matrix-green);
         }
-        .cyan-cyber { color: var(--cyber-cyan); border-color: var(--cyber-cyan); }
-        .cyan-cyber h2 { color: var(--cyber-cyan); text-shadow: 0 0 8px var(--cyber-cyan); }
-        h2 { font-size: 1.4rem; margin-top: 0; text-shadow: 0 0 6px var(--matrix-green); }
-        .file-metadata { font-size: 0.8rem; background-color: #000; padding: 0.4rem; margin-bottom: 1.5rem; border-left: 2px solid currentColor; }
-        .content-body { color: var(--text-white); font-size: 0.95rem; white-space: pre-wrap; line-height: 1.7; }
-        .lyrics-terminal {
-            background-color: #000; border: 1px solid var(--border-glow); padding: 1rem;
-            height: 180px; overflow-y: auto; color: #7df9ff; font-size: 0.85rem; margin: 1rem 0;
+
+        .file-metadata {
+            font-size: 0.8rem;
+            background-color: #000;
+            padding: 0.4rem;
+            margin-bottom: 1.5rem;
+            border-left: 2px solid currentColor;
         }
-        .action-link {
-            display: inline-block; margin-top: 2rem; background: transparent; border: 1px solid currentColor;
-            color: inherit; padding: 0.5rem 1rem; cursor: pointer; text-transform: uppercase;
-            font-size: 0.85rem; font-weight: bold; text-decoration: none;
-        }
-        .action-link:hover { background-color: var(--matrix-green); color: var(--term-bg); box-shadow: 0 0 12px var(--matrix-green); }
-        .cyan-cyber .action-link:hover { background-color: var(--cyber-cyan); color: var(--term-bg); box-shadow: 0 0 12px var(--cyber-cyan); }
     </style>
 </head>
 <body>
+
     <div class="crt-glitch"></div>
+
     <div class="terminal-wrapper">
         <div class="terminal-header">
             <span>SYS_STATUS: ACTIVE</span>
@@ -86,7 +119,7 @@
         </div>
 
         <!-- MAIN TERMINAL MENU INDEX -->
-        <div id="main-menu" class="page-view active-frame">
+        <div id="main-menu">
             <div class="menu-title">SYS_INITIALIZE: MULTI_MODAL_ROOT</div>
             <div class="prompt-line">> ACCESSING: 2026-2027 GT PBA PORTFOLIO DEPLOYMENT...</div>
             
@@ -94,65 +127,34 @@
                 ID: TALENTED // TRACK: RESPONSIBLE // PROTOCOL: NOT_ORDINARY
             </div>
 
+            <!-- GITHUB PAGES RELATIVE LINK ROUTING SYSTEM -->
             <div class="directory-tree">
-                <!-- ROUTING LINKS FOR INDEPENDENT SUB-PAGES -->
-                <a href="narrative-cover.html" class="console-trigger">
+                <!-- 1. Narrative Cover Link -->
+                <a href="./narrative-cover.html" class="console-trigger">
                     [EXE] run_narrative_cover.bin<br>
                     <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 4.2KB // Status: Verified</span>
                 </a>
-                <a href="mission.html" class="console-trigger">
+                
+                <!-- 2. Mission Statement Link -->
+                <a href="./mission.html" class="console-trigger">
                     [TXT] view_mission_statement.cfg<br>
                     <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 1.8KB // Status: Read_Only</span>
                 </a>
-                <a href="trailer.html" class="console-trigger">
+                
+                <!-- 3. Film Preview Link -->
+                <a href="./trailer.html" class="console-trigger">
                     [SH] execute_film_preview.sh<br>
                     <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 8.9KB // Status: Compiled</span>
                 </a>
-                <button class="console-trigger" onclick="switchPage('page-theme')">
+                
+                <!-- 4. Theme Song Audio Profile Link -->
+                <a href="./themesong.html" class="console-trigger">
                     [MP3] decrypt_audio_theme.sys<br>
                     <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 12.4MB // Status: Decoded</span>
-                </button>
+                </a>
             </div>
-        </div>
-
-        <!-- SLIDE 4: THEME SONG AUDIO PROFILE -->
-        <div id="page-theme" class="page-view cyan-cyber">
-            <h2>[SYS_DECRYPTED] AUDIO_THEME_MAN_IN_THE_MIRROR.SYS</h2>
-            <div class="file-metadata">SOURCE: MICHAEL_JACKSON // STREAM_PORT: PORT_80</div>
-            
-            <div style="margin: 1rem 0;">
-                <a href="https://youtube.com" target="_blank" class="action-link" style="margin:0;">[EXECUTE: STREAM_AUDIO]</a>
-            </div>
-
-            <div class="content-body">
-<h3>TELEMETRY LYRICS EXCERPT:</h3>
-<div class="lyrics-terminal">> I'm starting with the man in the mirror
-> I'm asking him to change his ways
-> And no message could have been any clearer
-> If you wanna make the world a better place
-> Take a look at yourself, and then make a change
-> 
-> You gotta get it right, while you got the time
-> 'Cause when you close your heart
-> Then you close your mind!</div>
-
-<h3>SIGNIFICANCE IN MULTIPLE LIFE ASPECTS:</h3>
-This song is significant because its message applies directly to my school habits, my music, and how I handle pressure. Academically, as a straight-A student who easily grasps concepts, it is easy to become arrogant. Whether I am grinding through a program that has failed for a month, practicing the violin, or studying for difficult CBE tests, this song reminds me to stay humble, check my blind spots, and realize that being smart means constantly evaluating my own choices.
-
-<h3>PERSONAL STORY DIRECT LINK:</h3>
-Smashing our backyard security camera with a soccer ball was my ultimate reality check. I was acting completely untouchable, ignoring my parents' number-one rule because I was stubbornly obsessed with hitting a perfect streak of crossbar shots. When that lens shattered onto the patio, it acted like a literal mirror showing me my own reckless pride. To "make a change," I had to face what I did, force my legs to walk inside, and call my mother to confess. It represents the exact moment my identity shifted from a self-absorbed kid into a truly honest, accountable, and responsible person.</div>
-            
-            <button class="action-link" onclick="switchPage('main-menu')">./exit_to_root</button>
         </div>
     </div>
 
-    <script>
-        function switchPage(pageId) {
-            const pages = document.querySelectorAll('.page-view');
-            pages.forEach(page => { page.classList.remove('active-frame'); });
-            const targetPage = document.getElementById(pageId);
-            if(targetPage) { targetPage.classList.add('active-frame'); }
-        }
-    </script>
 </body>
 </html>
