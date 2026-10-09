@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL // FILM_PREVIEW_ARCHITECTURE.SH</title>
+    <style>
+        :root {
+            --term-bg: #010403;
+            --matrix-green: #00ff33;
+            --matrix-glow: rgba(0, 255, 51, 0.25);
+            --border-glow: #06240d;
+            --text-white: #e1e7e4;
+        }
+        
+        * {
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--term-bg);
+            color: var(--matrix-green);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(16, 24, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
+            background-size: 100% 4px;
+        }
+
+        .crt-glitch {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, transparent 55%, rgba(0,0,0,0.85) 100%);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .terminal-wrapper {
+            max-width: 950px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 1px solid var(--matrix-green);
+            box-shadow: 0 0 20px var(--matrix-glow);
+            background-color: #020604;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed var(--matrix-green);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-white);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            text-shadow: 0 0 6px var(--matrix-green);
+            border-bottom: 1px dashed var(--border-glow);
+            padding-bottom: 0.5rem;
+        }
+
+        .file-metadata {
+            font-size: 0.8rem;
+            background-color: #000;
+            padding: 0.4rem;
+            margin-bottom: 1.5rem;
+            border-left: 2px solid var(--matrix-green);
+        }
+
+        .content-body {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
+
+        .video-container {
+            text-align: center;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-width: 640px;
+            border: 1px solid var(--matrix-green);
+            box-shadow: 0 0 15px rgba(0, 255, 51, 0.2);
+            background-color: #000;
+        }
+
+        .lyrics-terminal {
+            background-color: #000;
+            border: 1px solid var(--border-glow);
+            padding: 1rem;
+            height: 180px;
+            overflow-y: auto;
+            color: #7df9ff;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .action-link {
+            display: inline-block;
+            margin-top: 2rem;
+            background: transparent;
+            border: 1px solid var(--matrix-green);
+            color: inherit;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .action-link:hover {
+            background-color: var(--matrix-green);
+            color: var(--term-bg);
+            box-shadow: 0 0 12px var(--matrix-green);
+        }
+
+        .backup-stream-btn {
+            background-color: #0b2413;
+            border: 1px dashed var(--matrix-green);
+            color: #fff;
+            padding: 10px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .backup-stream-btn:hover {
+            background-color: var(--matrix-green);
+            color: #000;
+            box-shadow: 0 0 10px var(--matrix-green);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="crt-glitch"></div>
+
+    <div class="terminal-wrapper">
+        <div class="terminal-header">
+            <span>SYS_STATUS: PIPELINE_VIEW</span>
+            <span>FILE_NODE: SECURE_PORT_80</span>
+            <span>ISOLATED_STREAM</span>
+        </div>
+
+        <h2>[PIPELINE_OUTPUT] FILM_PREVIEW_ARCHITECTURE.SH</h2>
+        <div class="file-metadata">PRODUCT_MEDIUM: CINEMATIC_TRAILER_VIA_WEVIDEO // TITLE: CTRL_ALT_DEFY // SOURCE: Y.MP4</div>
+        
+        <!-- AUDIO FAILSAFE FALLBACK LINK PLUGGED WITH LIVE VALID LINK -->
+        <a href="https://canva.link/fail-safe-canvadirectlink" target="_blank" class="backup-stream-btn">
+            [⚠️ AUDIO_FAILSAFE] RESOLVE OVERLAY SYSTEM: CLICK TO VIEW TRAILER WITH FULL AUDIO VIA CANVA CLOUD
+        </a>
+
+        <!-- LOCAL PLAYER ENVIRONMENT -->
+        <div class="video-container">
+            <video width="100%" controls preload="auto" playsinline>
+                <source src="y.mp4" type="video/mp4">
+                Your browser does not support the video tag or cannot find the local file.
+            </video>
+        </div>
+
+        <div class="content-body"><strong>My chosen product (video, animation, digital storybook, etc) is:</strong> A cinematic video trailer / movie preview layout created on WeVideo.
+
+<strong>PRODUCT DESCRIPTION & RUBRIC ALIGNMENT:</strong>
+This digital media trailer satisfies all strict rubric guidelines by providing a complete introduction of myself, my family values, and my multidisciplinary passions. It loops together my intense drive across multiple high-stakes interests—including performing on the violin, preparing for grueling CBE tests, playing competitive soccer, and spending entire months debugging code streams. Crucially, the preview demonstrates how I took control of my education by completely programming this entire multi-modal portfolio layout from scratch using vanilla HTML, CSS, and JavaScript rather than deploying generic pre-built template engines. Ultimately, it maps out how I use these rigorous logical skills to target my long-term career ambition of tracking into an enterprise cybersecurity executive leadership seat as a future Chief Information Security Officer (CISO), proving that I am talented, responsible, and completely non-ordinary.
+
+<strong>[SYS_DECRYPT] VIDEO TRANSCIPT & TIMELINE METRICS:</strong>
+<div class="lyrics-terminal">> [00:00 - 00:14] INTERFACE LOG: "ONE SHOT. ONE MISTAKE. NO WAY BACK. PASSIONS AND DESIRES TRAILER OF KENIL."
+> [00:15 - 00:22] AUDIO LOG: "I am Kenil—a programmer, violinist, athlete, and a straight-A student."
+> [00:23 - 00:32] AUDIO LOG: "Behind all of these qualities, I'm backed by my parents, who teach me the ultimate value of accountability and encourage me to challenge myself."
+> [00:33 - 00:42] AUDIO LOG: "I dedicate myself to many things. Of those, my three interests are playing soccer, violin, and creating programs."
+> [00:43 - 01:08] AUDIO LOG: "I don't use templates, I build the platform. This was an image from one of my projects where I was trying to recreate a game without any other external sources. This also showcases my goals for the future and how I want to become a CISO of a great company."</div></div>
+        
+        <a href="index.html" class="action-link">./exit_to_root</a>
+    </div>
+
+</body>
+</html>
