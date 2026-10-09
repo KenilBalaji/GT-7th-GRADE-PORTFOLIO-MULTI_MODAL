@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROOT//GT_PBA_PORTFOLIO_2026</title>
+    <style>
+        :root {
+            --term-bg: #010403;
+            --matrix-green: #00ff33;
+            --matrix-glow: rgba(0, 255, 51, 0.25);
+            --cyber-cyan: #00f0ff;
+            --cyber-glow: rgba(0, 240, 255, 0.25);
+            --breach-red: #ff0055;
+            --breach-glow: rgba(255, 0, 85, 0.25);
+            --dark-dim: #030d06;
+            --border-glow: #06240d;
+            --text-white: #e1e7e4;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--term-bg);
+            color: var(--matrix-green);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(16, 24, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
+            background-size: 100% 4px;
+        }
+
+        .crt-glitch {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, transparent 55%, rgba(0,0,0,0.85) 100%);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .terminal-wrapper {
+            max-width: 950px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border: 1px solid var(--matrix-green);
+            box-shadow: 0 0 20px var(--matrix-glow);
+            background-color: #020604;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed var(--matrix-green);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-white);
+        }
+
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active-frame {
+            display: block;
+            animation: terminalGlitch 0.12s ease-in-out;
+        }
+
+        @keyframes terminalGlitch {
+            0% { opacity: 0.3; transform: scaleY(0.98); }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; transform: scaleY(1); }
+        }
+
+        .menu-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-shadow: 0 0 8px var(--matrix-green);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .prompt-line {
+            color: var(--text-white);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .directory-tree {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .console-trigger {
+            background-color: var(--dark-dim);
+            border: 1px solid var(--border-glow);
+            padding: 1.2rem;
+            color: var(--matrix-green);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            font-weight: bold;
+        }
+
+        .console-trigger:hover {
+            background-color: #08210e;
+            border-color: var(--matrix-green);
+            box-shadow: 0 0 15px var(--matrix-glow);
+        }
+
+        .breach-alert {
+            color: var(--breach-red);
+            border-color: var(--breach-red);
+        }
+        .breach-alert h2 { color: var(--breach-red); text-shadow: 0 0 8px var(--breach-red); }
+
+        .cyan-cyber {
+            color: var(--cyber-cyan);
+            border-color: var(--cyber-cyan);
+        }
+        .cyan-cyber h2 { color: var(--cyber-cyan); text-shadow: 0 0 8px var(--cyber-cyan); }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            text-shadow: 0 0 6px var(--matrix-green);
+        }
+
+        .file-metadata {
+            font-size: 0.8rem;
+            background-color: #000;
+            padding: 0.4rem;
+            margin-bottom: 1.5rem;
+            border-left: 2px solid currentColor;
+        }
+
+        .content-body {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
+
+        .lyrics-terminal {
+            background-color: #000;
+            border: 1px solid var(--border-glow);
+            padding: 1rem;
+            height: 180px;
+            overflow-y: auto;
+            color: #7df9ff;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+
+        .action-link {
+            display: inline-block;
+            margin-top: 2rem;
+            background: transparent;
+            border: 1px solid currentColor;
+            color: inherit;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .action-link:hover {
+            background-color: var(--matrix-green);
+            color: var(--term-bg);
+            box-shadow: 0 0 12px var(--matrix-green);
+        }
+
+        .breach-alert .action-link:hover {
+            background-color: var(--breach-red);
+            color: var(--text-white);
+            box-shadow: 0 0 12px var(--breach-red);
+        }
+
+        .cyan-cyber .action-link:hover {
+            background-color: var(--cyber-cyan);
+            color: var(--term-bg);
+            box-shadow: 0 0 12px var(--cyber-cyan);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="crt-glitch"></div>
+
+    <div class="terminal-wrapper">
+        <div class="terminal-header">
+            <span>SYS_STATUS: ACTIVE</span>
+            <span>PORT_ENGAGED: 2026_2027_GT_PBA</span>
+            <span>SECURE_SHELL</span>
+        </div>
+
+        <!-- MAIN TERMINAL MENU -->
+        <div id="main-menu" class="page-view active-frame">
+            <div class="menu-title">SYS_INITIALIZE: MULTI_MODAL_ROOT</div>
+            <div class="prompt-line">> ACCESSING: 2026-2027 GT PBA PORTFOLIO DEPLOYMENT...</div>
+            
+            <div class="file-metadata" style="color: var(--matrix-green);">
+                ID: TALENTED // TRACK: RESPONSIBLE // PROTOCOL: NOT_ORDINARY
+            </div>
+
+            <div class="directory-tree">
+                <button class="console-trigger" onclick="switchPage('page-narrative')">
+                    [EXE] run_narrative_cover.bin<br>
+                    <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 4.2KB // Status: Verified</span>
+                </button>
+                <button class="console-trigger" onclick="switchPage('page-mission')">
+                    [TXT] view_mission_statement.cfg<br>
+                    <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 1.8KB // Status: Read_Only</span>
+                </button>
+                <button class="console-trigger" onclick="switchPage('page-preview')">
+                    [SH] execute_film_preview.sh<br>
+                    <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 8.9KB // Status: Compiled</span>
+                </button>
+                <button class="console-trigger" onclick="switchPage('page-theme')">
+                    [MP3] decrypt_audio_theme.sys<br>
+                    <span style="font-size:0.75rem; font-weight:normal; color:var(--text-white);">File Size: 12.4MB // Status: Decoded</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- SLIDE 1: PERSONAL NARRATIVE BOOK COVER -->
+        <div id="page-narrative" class="page-view breach-alert">
+            <h2>[SYSTEM_BREACH_ALERT] FILE: CRACKING_THE_LENS.LOG</h2>
+            <div class="file-metadata">METADATA: ARCHIVE_DATE_MID_2023 // SEVERITY: HIGH // AGE_NODE: 10_YEARS</div>
+            
+            <div class="content-body">
+<strong>TITLE: Cracking the Lens
+SUBTITLE: How a Split-Second Mistake Reshaped a Flawless Image</strong>
+
+When you are a ten-year-old straight-A student who hates losing, it is easy to feel entirely untouchable. But on a scorching afternoon in 2023, a stubborn obsession with hitting perfect soccer crossbar shots collided violently with a backyard security camera. This is the raw story of a broken rule, an expensive crash, and the terrifying phone call that forced a reckless perfectionist to trade a fake image for real integrity.</div>
+            
+            <button class="action-link" onclick="switchPage('main-menu')">./exit_to_root</button>
+        </div>
+
+        <!-- SLIDE 2: LIFE MISSION STATEMENT -->
+        <div id="page-mission" class="page-view">
+            <h2>[CORE_OBJECTIVE] LIFE_MISSION_STATEMENT.CFG</h2>
+            <div class="file-metadata">PARAM: ANALYTICAL_MIND // DOMAINS: FINANCE_CYBERSECURITY</div>
+            
+            <div class="content-body">My mission is to leverage my analytical mind, logical problem-solving skills, and intense focus to excel in the fields of finance and cybersecurity. As a straight-A student, musician, and programmer, I am driven to push past failures—whether debugging a broken program for a month or studying for grueling CBE tests. I commit to achieving absolute success not just through high performance, but through radical honesty, situational awareness, and total personal accountability to my family, my peers, and myself.</div>
+            
+            <button class="action-link" onclick="switchPage('main-menu')">./exit_to_root</button>
+        </div>
+
+        <!-- SLIDE 3: PASSIONS & DREAMS FILM PREVIEW -->
+        <div id="page-preview" class="page-view">
+            <h2>[PIPELINE_OUTPUT] FILM_PREVIEW_ARCHITECTURE.SH</h2>
+            <div class="file-metadata">PRODUCT_MEDIUM: CINEMATIC_TRAILER // TITLE: CTRL_ALT_DEFY</div>
+            

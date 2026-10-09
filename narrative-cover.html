@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL // CRACKING_THE_LENS.LOG</title>
+    <style>
+        :root {
+            --term-bg: #010403;
+            --breach-red: #ff0055;
+            --breach-glow: rgba(255, 0, 85, 0.25);
+            --text-white: #e1e7e4;
+        }
+        body {
+            background-color: var(--term-bg);
+            color: var(--breach-red);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(rgba(16, 24, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
+            background-size: 100% 4px;
+        }
+        .crt-glitch {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, transparent 55%, rgba(0,0,0,0.85) 100%);
+            pointer-events: none;
+        }
+        .terminal-wrapper {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 1px solid var(--breach-red);
+            box-shadow: 0 0 20px var(--breach-red);
+            background-color: #050102;
+        }
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            text-shadow: 0 0 8px var(--breach-red);
+            border-bottom: 1px dashed var(--breach-red);
+            padding-bottom: 0.5rem;
+        }
+        .file-metadata {
+            font-size: 0.8rem;
+            background-color: #000;
+            padding: 0.4rem;
+            margin-bottom: 1.5rem;
+            border-left: 2px solid var(--breach-red);
+        }
+        
+        .display-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .cover-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        @media (min-width: 650px) {
+            .cover-grid {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .image-frame {
+            border: 2px solid var(--breach-red);
+            padding: 8px;
+            background-color: #000;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+            max-width: 340px;
+            width: 100%;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #22020b;
+        }
+
+        .content-body {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            line-height: 1.7;
+            border-top: 1px dashed #3a0c1a;
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .action-link {
+            display: inline-block;
+            margin-top: 2rem;
+            background: transparent;
+            border: 1px solid var(--breach-red);
+            color: var(--breach-red);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .action-link:hover {
+            background-color: var(--breach-red);
+            color: var(--text-white);
+            box-shadow: 0 0 12px var(--breach-red);
+        }
+    </style>
+</head>
+<body>
+    <div class="crt-glitch"></div>
+    <div class="terminal-wrapper">
+        <h2>[SYSTEM_BREACH_ALERT] FILE: DISPLAY_CANVA_COVERS.LOG</h2>
+        <div class="file-metadata">METADATA: ARCHIVE_DATE_MID_2023 // ACCESS: GRANTED // TARGETS: 1.PNG & 2.PNG</div>
+        
+        <div class="display-container">
+            
+            <!-- FIXED EXPLICIT IMAGES LINK SYSTEM -->
+            <div class="cover-grid">
+                <!-- Slide Page 1 Panel -->
+                <div class="image-frame">
+                    <img src="1.png" alt="Canva Front Cover - 1.png">
+                </div>
+
+                <!-- Slide Page 2 Panel -->
+                <div class="image-frame">
+                    <img src="2.png" alt="Canva Interior Sheet - 2.png">
+                </div>
+            </div>
+
+            <!-- STORY SYNOPSIS INTERFACE -->
+            <div class="content-body"><strong>TITLE: Cracking the Lens
+SUBTITLE: How a Split-Second Mistake Reshaped a Flawless Image</strong>
+
+When you are a ten-year-old straight-A student who hates losing, it is easy to feel entirely untouchable. But on a scorching afternoon in 2023, a stubborn obsession with hitting perfect soccer crossbar shots collided violently with a backyard security camera. This is the raw story of a broken rule, an expensive crash, and the terrifying phone call that forced a reckless perfectionist to trade a fake image for real integrity.</div>
+        </div>
+        
+        <a href="welcome.html" class="action-link">./exit_to_root</a>
+    </div>
+</body>
+</html>
